@@ -247,10 +247,3 @@ function initializeAudioPlayer() {
         });
     });
 }
-
-// Consolidated DOMContentLoaded listener
-document.addEventListener("DOMContentLoaded", function () {
-// Only call this function once after initializing tracks
-setupEventListeners();
-initializeAudioPlayer();
-});
