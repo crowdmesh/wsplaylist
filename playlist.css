@@ -282,6 +282,7 @@
     }
 
     .track-info {
+        font-size: 0.8em !important;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -293,7 +294,7 @@
 
     .player-controls {
         display: flex;
-        margin-top: 0px;
+        margin-top: 20px;
     }
 
     .player-controls button {
