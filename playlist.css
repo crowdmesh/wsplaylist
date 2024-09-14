@@ -292,6 +292,10 @@
         transition: color 0.3s ease;
     }
 
+    #preview-artist-name {
+        font-weight: bold;
+    }
+
     .player-controls {
         display: flex;
         margin-top: 20px;
