@@ -305,8 +305,8 @@
     }
 
     .player-controls img {
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         filter: invert(1);
         transition: filter 0.3s ease;
     }
