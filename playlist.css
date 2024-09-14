@@ -5,6 +5,7 @@
 
 #preview-artist-name {
     font-weight: bold;
+    margin-top: 10px;
 }
 
 #playlist-widget {
@@ -292,9 +293,6 @@
         transition: color 0.3s ease;
     }
 
-    #preview-artist-name {
-        margin-top: 10px;
-    }
 
     .player-controls {
         display: flex;
