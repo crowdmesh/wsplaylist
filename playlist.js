@@ -1,6 +1,3 @@
-
-
-
 // Update both play/pause buttons globally
 function updateIcons(isPlaying, track) {
     // Main player control icons
