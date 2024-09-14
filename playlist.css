@@ -10,6 +10,7 @@
 #playlist-widget {
     font-family: 'Poppins', sans-serif;
     color: #000000;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
