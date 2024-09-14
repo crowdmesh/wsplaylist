@@ -1,3 +1,6 @@
+
+
+
 // Update both play/pause buttons globally
 function updateIcons(isPlaying, track) {
     // Main player control icons
@@ -238,5 +241,9 @@ function initializeAudioPlayer() {
     });
 }
 
+// Consolidated DOMContentLoaded listener
+document.addEventListener("DOMContentLoaded", function () {
 // Only call this function once after initializing tracks
 setupEventListeners();
+initializeAudioPlayer();
+});
