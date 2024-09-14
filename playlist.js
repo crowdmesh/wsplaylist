@@ -51,8 +51,11 @@ const nextButton = document.getElementById("next-btn");
 let trackItems = []; // Declare trackItems globally to be used throughout
 
 // Set up the event listeners once
+let listenersSetUp = false; // Flag to check if listeners are already set up
+
 function setupEventListeners() {
-    // Ensure existing listeners are not added multiple times
+    if (listenersSetUp) return; // If listeners are already set up, skip setting them up again
+
     playPauseButton.addEventListener("click", function () {
         if (currentPlayingWaveSurfer) {
             if (currentPlayingWaveSurfer.isPlaying()) {
@@ -71,7 +74,6 @@ function setupEventListeners() {
     });
 
     nextButton.addEventListener("click", function () {
-        // Increment track index and ensure it loops around properly
         console.log("Before Next Click: currentTrackIndex = ", currentTrackIndex);
         currentTrackIndex = (currentTrackIndex + 1) % trackItems.length;
         console.log("After Next Click: currentTrackIndex = ", currentTrackIndex);
@@ -79,13 +81,15 @@ function setupEventListeners() {
     });
 
     prevButton.addEventListener("click", function () {
-        // Decrement track index and ensure it loops around properly
         console.log("Before Prev Click: currentTrackIndex = ", currentTrackIndex);
         currentTrackIndex = (currentTrackIndex - 1 + trackItems.length) % trackItems.length;
         console.log("After Prev Click: currentTrackIndex = ", currentTrackIndex);
         stopAndLoadTrack(currentTrackIndex); // Load the previous track
     });
+
+    listenersSetUp = true; // Set the flag to true after setting up listeners
 }
+
 
 // Stop the current track and load a new one
 function stopAndLoadTrack(index) {
@@ -99,6 +103,12 @@ function stopAndLoadTrack(index) {
     if (!container) {
         console.error("Waveform container not found.");
         return; // Stop further execution if the container is not found
+    }
+
+    // Check if the current instance is playing or processing
+    if (currentPlayingWaveSurfer && currentPlayingWaveSurfer.isReady) {
+        currentPlayingWaveSurfer.destroy();
+        currentPlayingWaveSurfer = null;
     }
 
     // Clear the existing waveform content
