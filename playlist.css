@@ -18,15 +18,6 @@
     box-sizing: border-box;
 }
 
-
-/* Layout: Two columns */
-#container {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    height: 90vh;
-}
-
 /* Preview section */
 
 #player-container {
