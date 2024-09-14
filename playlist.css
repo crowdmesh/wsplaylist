@@ -1,18 +1,23 @@
-h2 {
+#preview-album-name {
     margin-bottom: 0px !important;
+    font-weight: bold;
 }
 
-body {
+#preview-artist-name {
+    font-weight: bold;
+}
+
+#playlist-widget {
     font-family: 'Poppins', sans-serif;
-    background-color: #ffffff00;
     color: #000000;
-    padding: 0px;
+    padding: 5px;
     display: flex;
-    justify-content: space-between;
-    align-content: center;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     box-sizing: border-box;
 }
+
 
 /* Layout: Two columns */
 #container {
@@ -25,16 +30,18 @@ body {
 /* Preview section */
 
 #player-container {
+    font-family: 'Poppins', sans-serif;
     background-color: #282828;
     border-radius: 20px;
     border: 5px solid #575757;
     overflow: hidden;
     width: 100%;
+    max-width: 972px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s ease;
 }
 
-#playlist-widget {
+#playlist-main-display {
     display: flex;
     align-items: center;
     padding: 10px;
@@ -116,6 +123,8 @@ body {
     background-color: #242424;
     border-radius: 20px;
     width: 100%;
+    max-height: 225px;
+    overflow-y: auto;
     transition: background-color 0.3s ease;
 }
 
@@ -204,108 +213,7 @@ body {
     background-color: #1d1d1d;
 }
 
-#embed-button {
-    margin: 20px;
-    width: 90%;
-    padding: 20px;
-    font-size: 20px;
-    font-weight: 500;
-}
 
-/* Setup section */
-#setup-section {
-    width: 30%;
-    padding: 20px;
-    background-color: #ffffff;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #000000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;  /* Center the form horizontally */
-    height: 100%;
-    overflow-y: auto; /* Enable vertical scrolling */
-}
-
-/* Style for track item list */
-.track-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    background-color: #fff;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
-/* Smaller "x" for delete */
-.delete-btn {
-    background: none;
-    border: none;
-    font-size: 14px;
-    color: red;
-    cursor: pointer;
-}
-
-/* Up/Down arrows for moving tracks */
-.move-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    color: #000;
-}
-
-.move-btn i {
-    font-size: 18px;
-    color: #000;
-}
-
-h1 {
-    text-align: center;
-    color: #000000;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-label {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-input[type="text"], input[type="file"], input[type="color"] {
-    width: 95%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    color: #000000;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #000000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
-}
-
-.delete-btn:hover, .move-btn:hover {
-    background-color: #f7f7f7;
-}
-
-button:hover {
-    background-color: #1d1d1d;
-}
 
 #track-list {
     margin-top: -15px;
@@ -368,7 +276,7 @@ button:hover {
 
 @media (max-width: 768px) {
     
-    #playlist-widget {
+    #playlist-main-display {
         display: flex;
         align-items: center;
         padding: 5px;
