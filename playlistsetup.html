@@ -89,7 +89,7 @@
             transition: color 0.3s ease;
         }
 
-        #preview-song-title {
+        #preview-track-title {
             margin-bottom: 5px !important;
         }
 
@@ -491,7 +491,7 @@
                     </div>
                     <div class="track-info">
                         <h2 id="preview-album-name">Album Name</h2>
-                        <h3 id="preview-song-title">Song Title</h3>
+                        <h3 id="preview-track-title">Track Title</h3>
                         <h4 id="preview-artist-name">Artist Name</h4>
                         <div class="player-controls">
                             <button id="prev-btn">
@@ -1016,7 +1016,7 @@
             // Update the preview section with the current track's title and artist name
             const trackTitle = selectedTrack.querySelector('.track-title').textContent;
             const trackArtist = selectedTrack.querySelector('.track-artist').textContent;
-            document.getElementById('preview-song-title').textContent = trackTitle;
+            document.getElementById('preview-track-title').textContent = trackTitle;
             document.getElementById('preview-artist-name').textContent = trackArtist
 
             // Get the single waveform container
@@ -1118,7 +1118,7 @@
                 const trackArtist = currentPlayingTrack.querySelector('.track-artist').textContent;
                 console.log("Initial track title:", trackTitle);
         console.log("Initial track artist:", trackArtist); // Log the artist name
-                document.getElementById('preview-song-title').textContent = trackTitle;
+                document.getElementById('preview-track-title').textContent = trackTitle;
                 document.getElementById('preview-artist-name').textContent = trackArtist;
 
                 // Ensure the UI shows the play state correctly after initialization
