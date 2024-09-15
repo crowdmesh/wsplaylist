@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/mustache@4.2.0/mustache.min.js"></script>
     <style>
-        h2 {
-            margin-bottom: 0px !important;
+        .track-info h2 {
+            margin: 10px !important;
+        }
+
+        .track-info h3 {
+            margin: 5px !important;
         }
 
         body {
@@ -80,8 +84,19 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            height: 100%;
             color: #ffffff;
             transition: color 0.3s ease;
+        }
+
+        #preview-song-title {
+            margin-bottom: 5px !important;
+        }
+
+
+        #preview-artist-name {
+            margin: 5px !important;
+            font-weight: 400;
         }
 
         .player-controls {
@@ -383,15 +398,19 @@
             background-color: #f7f7f7;
         }
 
-        .light-theme #tracklist li:hover {
-            background-color: #a8a8a8;
+        .light-theme #tracklist li:hover,
+        .light-theme .player-controls button:hover {
+            background-color: #dcdcdc;
         }
+
+
 
         .light-theme .track-title,
         .light-theme .track-time,
         .light-theme .track-info h2,
         .light-theme .track-info h3,
-        .light-theme .track-number-text {
+        .light-theme .track-number-text,
+        .light-theme #preview-artist-name {
             color: #000000;
             /* Change album name, artist name, and text to black in light theme */
         }
@@ -472,7 +491,8 @@
                     </div>
                     <div class="track-info">
                         <h2 id="preview-album-name">Album Name</h2>
-                        <h3 id="preview-artist-name">Artist Name</h3>
+                        <h3 id="preview-song-title">Song Title</h3>
+                        <h4 id="preview-artist-name">Artist Name</h4>
                         <div class="player-controls">
                             <button id="prev-btn">
                                 <img src="https://storage.googleapis.com/msgsndr/5KgPcYXxhFJNe6A0vTLj/media/66e094e7085c2a85b13edd15.svg"
@@ -573,20 +593,20 @@
 
         <!-- Setup section -->
         <div id="setup-section">
-            <h1>Playlist Setup</h1>
+            <h1>Playlist Widget Setup</h1>
 
             <form id="playlist-setup-form">
                 <!-- Album Name -->
                 <div>
-                    <label for="album-name">Album Name:</label>
-                    <input type="text" id="album-name" placeholder="Enter album name" required
+                    <label for="album-name">Playlist Name:</label>
+                    <input type="text" id="album-name" placeholder="Enter playlist name" required
                         oninput="updatePreview()">
                 </div>
 
                 <!-- Album Art Upload -->
                 <div>
-                    <label for="album-art">Album Art URL:</label>
-                    <input type="text" id="album-art" placeholder="Album Art URL" onchange="updateAlbumArtPreview()"
+                    <label for="album-art">Cover Art URL:</label>
+                    <input type="text" id="album-art" placeholder="Cover Art URL" onchange="updateAlbumArtPreview()"
                         required>
                 </div>
 
@@ -874,17 +894,17 @@
         // Update the preview section based on the track list
         function updatePreviewSection() {
             const albumName = document.getElementById('album-name').value || "Album Name";
-            const artistName = document.getElementById('artist-name').value || "Artist Name";
+            
 
             document.getElementById('preview-album-name').textContent = albumName;
-            document.getElementById('preview-artist-name').textContent = artistName;
+        
 
             // Additional logic can be added here to load the tracks into the preview player.
         }
 
-           /////////////////////////////////////
-          ////////// .  ////////     //////////
-         //////////     //////// .   /////////
+        /////////////////////////////////////
+        ////////// .  ////////     //////////
+        //////////     //////// .   /////////
         /////////////////////////////////////
         ////////////////////////////////////
         /////////               ///////////
@@ -993,6 +1013,12 @@
             let selectedTrack = trackItems[index]; // Get the selected track based on index
             let trackUrl = selectedTrack.getAttribute("data-url"); // Fetch the track URL
 
+            // Update the preview section with the current track's title and artist name
+            const trackTitle = selectedTrack.querySelector('.track-title').textContent;
+            const trackArtist = selectedTrack.querySelector('.track-artist').textContent;
+            document.getElementById('preview-song-title').textContent = trackTitle;
+            document.getElementById('preview-artist-name').textContent = trackArtist
+
             // Get the single waveform container
             let container = document.querySelector(".waveform-container");
 
@@ -1086,6 +1112,14 @@
                 wavesurfer.load(audioSrc);
                 currentPlayingTrack = trackItems[currentTrackIndex];
                 currentPlayingWaveSurfer = wavesurfer;
+
+                // ** Update the preview elements with the first track's info **
+                const trackTitle = currentPlayingTrack.querySelector('.track-title').textContent;
+                const trackArtist = currentPlayingTrack.querySelector('.track-artist').textContent;
+                console.log("Initial track title:", trackTitle);
+        console.log("Initial track artist:", trackArtist); // Log the artist name
+                document.getElementById('preview-song-title').textContent = trackTitle;
+                document.getElementById('preview-artist-name').textContent = trackArtist;
 
                 // Ensure the UI shows the play state correctly after initialization
                 updateIcons(false, currentPlayingTrack);
