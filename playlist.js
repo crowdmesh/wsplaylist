@@ -96,6 +96,12 @@ function stopAndLoadTrack(index) {
     let selectedTrack = trackItems[index]; // Get the selected track based on index
     let trackUrl = selectedTrack.getAttribute("data-url"); // Fetch the track URL
 
+    // Update the preview section with the current track's title and artist name
+            const trackTitle = selectedTrack.querySelector('.track-title').textContent;
+            const trackArtist = selectedTrack.querySelector('.track-artist').textContent;
+            document.getElementById('preview-track-title').textContent = trackTitle;
+            document.getElementById('preview-artist-name').textContent = trackArtist
+
     // Get the single waveform container
     let container = document.querySelector(".waveform-container");
 
@@ -195,6 +201,14 @@ function initializeAudioPlayer() {
         wavesurfer.load(audioSrc);
         currentPlayingTrack = trackItems[currentTrackIndex];
         currentPlayingWaveSurfer = wavesurfer;
+
+        // ** Update the preview elements with the first track's info **
+        const trackTitle = currentPlayingTrack.querySelector('.track-title').textContent;
+        const trackArtist = currentPlayingTrack.querySelector('.track-artist').textContent;
+                console.log("Initial track title:", trackTitle);
+        console.log("Initial track artist:", trackArtist); // Log the artist name
+                document.getElementById('preview-track-title').textContent = trackTitle;
+                document.getElementById('preview-artist-name').textContent = trackArtist;
 
         // Ensure the UI shows the play state correctly after initialization
         updateIcons(false, currentPlayingTrack);
