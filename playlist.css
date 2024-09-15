@@ -315,9 +315,14 @@
         transition: color 0.3s ease;
     }
 
+    #preview-album-name {
+    margin-bottom: 10px !important;
+
+    }
+
     .player-controls {
         display: flex;
-        margin-top: 20px;
+        margin-top: 10px;
     }
 
     .player-controls button {
