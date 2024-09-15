@@ -1,13 +1,3 @@
-#preview-album-name {
-    margin-bottom: 0px !important;
-    font-weight: bold;
-}
-
-#preview-artist-name {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
 #playlist-widget {
     font-family: 'Poppins', sans-serif;
     color: #000000;
@@ -57,10 +47,24 @@
     transition: color 0.3s ease;
 }
 
+#preview-album-name {
+    margin: 10px !important;
+    font-weight: bold;
+}
+
+#preview-track-title {
+    font-weight: bold;
+    margin: 5px !important;
+}
+
+#preview-artist-name {
+    margin: 5px !important;
+    font-weight: 400;
+}
+
 .player-controls {
     display: flex;
     margin-top: 20px;
-    gap: 10px;
 }
 
 .player-controls button {
@@ -77,8 +81,8 @@
 }
 
 
-.pointer { 
-    cursor: pointer; 
+.pointer {
+    cursor: pointer;
 }
 
 .audio-player {
@@ -89,7 +93,8 @@
     padding-right: 15px;
 }
 
-.track-play-icon, .track-pause-icon {
+.track-play-icon,
+.track-pause-icon {
     filter: invert(1);
     transition: filter 0.3s ease;
 }
@@ -101,7 +106,8 @@
 
 .waveform-container {
     flex-grow: 1;
-    width: 80%; /* Set to 100% of its container width */
+    width: 80%;
+    /* Set to 100% of its container width */
     padding-bottom: 10px;
 }
 
@@ -116,6 +122,7 @@
     background-color: #242424;
     width: 100%;
     max-height: 250px;
+    min-height: 100px;
     overflow-y: auto;
     transition: background-color 0.3s ease;
 }
@@ -130,13 +137,16 @@
     border-top: 1px solid #ccc;
     background-color: #242424;
     transition: background-color 0.3s ease;
-    width: 100%;  /* Ensure full width inside the container */
-    box-sizing: border-box;  /* Ensure padding doesn’t affect the width */
+    width: 100%;
+    /* Ensure full width inside the container */
+    box-sizing: border-box;
+    /* Ensure padding doesn’t affect the width */
     position: relative;
 }
 
 .track-number {
-    width: 30px; /* Space reserved for the number or icons */
+    width: 30px;
+    /* Space reserved for the number or icons */
     text-align: center;
 }
 
@@ -154,30 +164,37 @@
 }
 
 #tracklist li:hover .track-number .track-number-text {
-    display: none; /* Hide the track number on hover */
+    display: none;
+    /* Hide the track number on hover */
 }
 
 #tracklist li:hover .track-number .play-icon {
-    display: inline-block; /* Show play icon on hover */
+    display: inline-block;
+    /* Show play icon on hover */
 }
 
 .playing .track-number-text {
-    display: none; /* Hide the track number when playing */
+    display: none;
+    /* Hide the track number when playing */
 }
 
 .playing .pause-icon {
-    display: inline-block; /* Show pause icon when playing */
+    display: inline-block;
+    /* Show pause icon when playing */
 }
 
 #tracklist li.playing {
-    background-color: #1d1d1d; /* Highlight currently playing track */
+    background-color: #1d1d1d;
+    /* Highlight currently playing track */
 }
 
 .track-details {
     display: flex;
     flex-direction: column;
-    margin-left: 15px; /* Adds space between the track number and the track details */
-    flex-grow: 1; /* Make the track details take up the remaining space */
+    margin-left: 15px;
+    /* Adds space between the track number and the track details */
+    flex-grow: 1;
+    /* Make the track details take up the remaining space */
     text-align: left;
 }
 
@@ -238,22 +255,26 @@
     background-color: #f7f7f7;
 }
 
-.light-theme #tracklist li:hover {
-    background-color: #a8a8a8;
+.light-theme #tracklist li:hover,
+.light-theme .player-controls button:hover {
+    background-color: #dcdcdc;
 }
 
-.light-theme .track-title, 
-.light-theme .track-time, 
-.light-theme .track-info h2, 
+.light-theme .track-title,
+.light-theme .track-time,
+.light-theme .track-info h2,
 .light-theme .track-info h3,
-.light-theme .track-number-text {
-    color: #000000; /* Change album name, artist name, and text to black in light theme */
+.light-theme .track-number-text,
+.light-theme #preview-artist-name {
+    color: #000000;
+    /* Change album name, artist name, and text to black in light theme */
 }
 
-.light-theme .player-controls img, 
-.light-theme .track-play-icon, 
+.light-theme .player-controls img,
+.light-theme .track-play-icon,
 .light-theme .track-pause-icon {
-    filter: invert(0); /* Black icons for light theme */
+    filter: invert(0);
+    /* Black icons for light theme */
 }
 
 #theme-selector {
@@ -262,12 +283,13 @@
     justify-content: space-between;
 }
 
-#playlist-setup-form > div:nth-child(4) > div > button, #theme-toggle {
+#playlist-setup-form>div:nth-child(4)>div>button,
+#theme-toggle {
     margin-top: 10px;
 }
 
 @media (max-width: 768px) {
-    
+
     #playlist-main-display {
         display: flex;
         align-items: center;
@@ -293,7 +315,6 @@
         transition: color 0.3s ease;
     }
 
-
     .player-controls {
         display: flex;
         margin-top: 20px;
@@ -306,8 +327,8 @@
     }
 
     .player-controls img {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         filter: invert(1);
         transition: filter 0.3s ease;
     }
